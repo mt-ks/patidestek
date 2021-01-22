@@ -39,23 +39,41 @@
                 </div>
             </div>
 
-            <div class="col s12 m9">
+            <div class="col s12 m7">
                 @for($i = 0; $i < 50; $i++)
-                    <div class="col s12 m4">
+                    <div class="col s12 m12">
                         <div class="card nice_shadow">
-                            <div class="card-image">
-                                <img src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
-                                <span class="card-title">KÖPÜŞ</span>
-                            </div>
                             <div class="card-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                            </div>
-                            <div class="card-action wg_shadow">
-                                <a href="#">Detaylar</a>
+                                <div class="post-owner d-flex">
+                                    <img
+                                        src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
+                                        class="radius-full" width="50px" alt="">
+                                    <div style="margin:auto 0 auto 8px;">
+                                        Alice Harikalar Diyarında <br>
+                                        <label>18:48 10-12-2020</label>
+                                    </div>
+                                </div>
+                                <div class="post-content mt-1" style="font-size: 20px">
+                                    <p>Merhaba arkadaşlar köpeğim afrika kabilesi Himbalar tarafından kaçırılmıştır, kırmızı renkteki
+                                        köpeğimizi tanrı zannediyorlar. Görenler 0530 123 123
+                                    </p>
+                                </div>
+                                <div class="action-area mt-1">
+                                    <a>Beğen</a>
+                                    <a style="margin-left: 10px;">Yorum yap</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 @endfor
+            </div>
+
+            <div class="col s12 m2">
+                <div class="d-flex" style="height: 450px;background: #433efe;margin-top: 10px;border-radius: 10px">
+                    <div style="margin: auto; color: white; font-size: 25px">
+                        REKLAM
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -1,0 +1,124 @@
+.nice_shadow {
+    -webkit-box-shadow: 0 1px 15px 1px rgba(81, 77, 92, .08)!important;
+    box-shadow: 0 1px 15px 1px rgba(81, 77, 92, .08)!important;
+}
+
+.custom_menu{
+    background-color: #ffffff!important;
+}
+.custom_menu ul li a{
+    color: #2d3748;
+}
+.custom_menu ul li a:hover{
+    background: transparent;
+    color: black;
+}
+
+.info_area{
+    margin-top: 25px;
+    background: #433efe;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+textarea{
+    width: 100% !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    color: #222 !important;
+    border: 1px solid #f4f5fe !important;
+    border-radius: 5px !important;
+    box-shadow: none !important;
+    background: #f4f5fe!important;
+}
+
+input {
+    width: 100% !important;
+    line-height: 40px !important;
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    color: #222 !important;
+    border: 1px solid #f4f5fe !important;
+    border-radius: 5px !important;
+    box-shadow: none !important;
+    background: #f4f5fe!important;
+}
+
+input:focus {
+    outline: 0 !important;
+    border-color: #dee0f6 !important
+}
+
+input:valid + label::before {
+    line-height: 20px !important;
+    font-size: 12px !important;
+    top: -10px !important;
+    background: #fff !important;
+    padding: 0 6px !important;
+    left: 9px !important;
+    content: attr(data-title) !important
+}
+
+input:focus + label::before {
+    line-height: 20px !important;
+    font-size: 12px !important;
+    top: -10px !important;
+    background: #fff !important;
+    color: #00f !important;
+    padding: 0 6px !important;
+    left: 9px !important
+}
+
+input:disabled + label::before {
+    line-height: 20px !important;
+    font-size: 12px !important;
+    top: -10px !important;
+    background: #fff !important;
+    color: #6d6d6d !important;
+    padding: 0 6px !important;
+    left: 9px !important
+}
+
+input:read-only + label::before {
+    line-height: 20px !important;
+    font-size: 12px !important;
+    top: -10px !important;
+    background: #fff !important;
+    color: #6d6d6d !important;
+    padding: 0 6px !important;
+    left: 9px !important
+}
+
+#loadingModal{
+    width: 150px!important;
+    height: 150px!important;
+
+}
+
+.custom_btn{
+    color: white!important;
+    border-radius: 5px;
+    padding: 10px;
+    background: #433efe!important;
+}
+
+.main_avatar{
+    border-radius: 8px;
+    width: 100px;
+}
+.d-flex{
+    display: flex;
+}
+
+.mt-1{
+    margin-top: 10px;
+}
+
+.radius-full{
+    border-radius: 5000px;
+}
