@@ -8,7 +8,8 @@ Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
+
 Route::get('/posts', function () {
     return view('posts');
 });

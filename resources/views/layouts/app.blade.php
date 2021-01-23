@@ -8,28 +8,42 @@
     <title>Pati Destek</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 
 <nav class="custom_menu nice_shadow">
     <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo black-text">DN</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#!" class="brand-logo black-text d-flex" ><img src="{{ asset('assets/images/logo2.png') }}" alt="" style="width: 48px;margin-top: 1px"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">Anasayfa</a></li>
-            <li><a href="badges.html">İlanlar</a></li>
-            <li><a href="collapsible.html">İstasyonlar</a></li>
-            <li><a href="mobile.html">Profilim</a></li>
+            @if(auth()->check())
+                <li><a href="">Anasayfa</a></li>
+                <li><a href="">İlanlar</a></li>
+                <li><a href="">İstasyonlar</a></li>
+                <li><a href="">Profilim</a></li>
+            @else
+                <li><a href="{{ route('login') }}">Giriş Yap</a></li>
+                <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
+            @endif
         </ul>
     </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
+    @if(auth()->check())
+        <li><a href="">Anasayfa</a></li>
+        <li><a href="">İlanlar</a></li>
+        <li><a href="">İstasyonlar</a></li>
+        <li><a href="">Profilim</a></li>
+    @else
+        <li><a href="{{ route('login') }}">Giriş Yap</a></li>
+        <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
+    @endif
 </ul>
 
 @yield('content')
