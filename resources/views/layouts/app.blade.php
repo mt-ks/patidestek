@@ -18,7 +18,7 @@
 
 <nav class="custom_menu nice_shadow">
     <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo black-text d-flex" ><img src="{{ asset('assets/images/logo2.png') }}" alt="" style="width: 48px;margin-top: 1px"></a>
+        <a href="{{ route('main') }}" class="brand-logo black-text d-flex" ><img src="{{ asset('assets/images/logo2.png') }}" alt="" style="width: 48px;margin-top: 1px"></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             @if(auth()->check())
