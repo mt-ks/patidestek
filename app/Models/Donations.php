@@ -14,18 +14,14 @@ class Donation  extends Models
 
     protected $fillable = [
         'id',
-        'name',
-        'price',
-        'information',
+        'user_id',
+        'receiver_id'
+        'quantity',
+        'description',
 
 
     ];
-    protected $table = 'Donations';
+    protected $table = 'donations';
     protected $primaryKey = 'id';
-    protected $hidden = 'price';
+    protected $hidden = ['quantity'];
 
-     @var array
-
-    protected $casts = [
-        'donations_send' => 'datetime',
-    ];
