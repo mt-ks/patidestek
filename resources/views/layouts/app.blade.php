@@ -16,6 +16,7 @@
 </head>
 <body>
 
+
 <nav class="custom_menu nice_shadow">
     <div class="nav-wrapper container">
         <a href="{{ route('main') }}" class="brand-logo black-text d-flex" ><img src="{{ asset('assets/images/logo2.png') }}" alt="" style="width: 48px;margin-top: 1px"></a>
