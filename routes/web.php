@@ -15,9 +15,12 @@ Route::get('/posts', function () {
     return view('posts');
 });
 
+Route::get('/station', function () {
+    return view('station');
+});
 
-Route::get('town/{cityId}',[RegionSelectController::class,'towns']);
-Route::get('district/{regionId}',[RegionSelectController::class,'districts']);
+Route::get('region/town/{cityId}',[RegionSelectController::class,'towns'])->name('region.town');
+Route::get('region/district/{townId}',[RegionSelectController::class,'districts'])->name('region.district');
 
 Route::get('test',[\App\Http\Controllers\TestController::class,'test']);
 

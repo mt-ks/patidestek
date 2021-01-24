@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\District;
-use App\Models\Region;
-use App\Models\RegionSub;
 use App\Models\Town;
 use Illuminate\Http\Request;
 use JsonMachine\JsonMachine;

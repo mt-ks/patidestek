@@ -16,12 +16,12 @@ class RegionSelectController extends Controller
 
     public function towns($cityId)
     {
-        return City::where('id',$cityId)->with('towns')->get();
+        return City::where('id',$cityId)->with('towns')->first();
     }
 
     public function districts($regionId)
     {
-        return Town::where('id',$regionId)->with('districts')->get();
+        return Town::where('id',$regionId)->with('districts')->first();
     }
 
 }

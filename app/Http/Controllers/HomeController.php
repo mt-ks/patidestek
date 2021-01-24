@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'city' => City::all()
+            'city' => City::orderBy('name')->get()
         ];
         return view('home',$data);
     }

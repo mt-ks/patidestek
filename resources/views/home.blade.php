@@ -20,28 +20,20 @@
                 <div class="card nice_shadow">
                     <div class="card-content">
                         <label>Filtreler</label>
-                        <input type="text" placeholder="Arama mentni...">
 
-                        <select data-page="" id="cities_select" class="browser-default">
+                        <select data-page="{{ route('region.town',['cityId' => -1]) }}" id="cities_select"
+                                class="browser-default">
                             <option value="">Şehir seçiniz...</option>
                             @foreach($city as $c)
                                 <option value="{{ $c->id }}">{{ $c->name }}</option>
                             @endforeach
                         </select>
 
-                        <select class="browser-default mt-1">
+                        <select id="town_select" data-page="{{ route('region.district',['townId' => -1]) }}"
+                                class="browser-default mt-1">
                             <option value="">İlçe seçiniz...</option>
                         </select>
 
-                        <select class="browser-default mt-1">
-                            <option value="">Mahalle seçiniz...</option>
-                        </select>
-
-
-
-                        <select class="browser-default mt-1">
-                            <option value="">Köpek</option>
-                        </select>
 
                         <button class="btn blue mt-1" style="width: 100%">ARA</button>
 
@@ -53,15 +45,15 @@
 
                 <div class="col s12 m12">
                     <div class="card nice_shadow">
-                       <div class="card-content">
-                           <textarea name="" id="" cols="30" rows="10" style="height: 100px"></textarea>
-                           <button type="submit" class="btn blue mt-1">PAYLAŞ</button>
-                       </div>
+                        <div class="card-content">
+                            <textarea name="" id="" cols="30" rows="10" style="height: 100px"></textarea>
+                            <button type="submit" class="btn blue mt-1">PAYLAŞ</button>
+                        </div>
                     </div>
                 </div>
 
 
-            @for($i = 0; $i < 50; $i++)
+                @for($i = 0; $i < 5; $i++)
                     <div class="col s12 m12">
                         <div class="card nice_shadow">
                             <div class="card-content">
@@ -75,9 +67,30 @@
                                     </div>
                                 </div>
                                 <div class="post-content mt-1" style="font-size: 20px">
-                                    <p>Merhaba arkadaşlar köpeğim afrika kabilesi Himbalar tarafından kaçırılmıştır, kırmızı renkteki
-                                        köpeğimizi tanrı zannediyorlar. Görenler 0530 123 123
-                                    </p>
+                                    <p>Merhaba bu benim istasyonum</p>
+                                    <div class="mapouter">
+                                        <div class="gmap_canvas">
+                                            <iframe width="600" height="500" id="gmap_canvas"
+                                                    src="https://maps.google.com/maps?q=İzmir balçova mine sokak&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                                                    frameborder="0" scrolling="no" marginheight="0"
+                                                    style="width: 100%;min-width: 100%"
+                                                    marginwidth="0"></iframe>
+                                            <a href="https://fmovies2.org"></a><br>
+                                            <style>.mapouter {
+                                                    position: relative;
+                                                    text-align: right;
+                                                    height: 500px;
+                                                    width: 100%;
+                                                }</style>
+                                            <a href="https://google-map-generator.com">google-map-generator.com</a>
+                                            <style>.gmap_canvas {
+                                                    overflow: hidden;
+                                                    background: none !important;
+                                                    height: 500px;
+                                                    width: 100%;
+                                                }</style>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="action-area mt-1">
                                     <a>Beğen</a>
