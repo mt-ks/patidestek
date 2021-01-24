@@ -115,6 +115,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mavinoo/laravel-batch" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/halaxa/json-machine" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

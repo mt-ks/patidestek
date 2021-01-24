@@ -110,6 +110,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/mavinoo/laravel-batch" />
+      <path value="$PROJECT_DIR$/vendor/halaxa/json-machine" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

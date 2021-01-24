@@ -13,8 +13,8 @@ class City extends Model
         'code', 'name'
     ];
 
-    public function regions()
+    public function towns()
     {
-        return $this->hasMany(Region::class,'city_id','id');
+        return $this->hasMany(Town::class,'city_id','id');
     }
 }

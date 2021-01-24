@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\District;
 use App\Models\Region;
 use App\Models\RegionSub;
+use App\Models\Town;
 use Illuminate\Http\Request;
+use JsonMachine\JsonMachine;
 use Mavinoo\Batch\Batch;
 
 class TestController extends Controller
@@ -13,71 +16,74 @@ class TestController extends Controller
     public function test()
     {
 //        return         City::where('id',7)->with('regions')->get();
+//        $data = $this->district();
+//
+//
+//        $columns = ['city_id','town_id','name','updated_at','created_at'];
+//
+//        $batchSize = 500; // insert 500 (default), 100 minimum rows in one query
+//
+//       \batch()->insert(new District, $columns, $data, $batchSize);
+//
 
-//        echo ini_get('max_execution_time');
+
     }
 
-    public static function region_sub()
-    {
-        $file = file_get_contents("https://raw.githubusercontent.com/mburakkalkan/turkiye-il-ilce-semt-mahalle-veritabani/master/turkiye_mahalleler_12042017.csv");
-        $data = explode("\n",$file);
-        array_shift($data);
-        $regions = [];
-        $time = now('Europe/Istanbul');
 
-        foreach ($data as $item)
+    public function district()
+    {
+        $jsonData = [];
+        $data = JsonMachine::fromFile(public_path("regions/district.json"));
+        $time = now('Europe/Istanbul');
+        foreach ($data as $it)
         {
-            $parse = explode(";",$item);
-            $regions[] = [
-                'region_id' => $parse[0],
-                'name' => $parse[1],
-                'city_id' => 0,
+            $jsonData[] = [
+                'city_id' => $it['il_id'],
+                'town_id' => $it['ilce_id'] - 1100,
+                'name' => $it['mahalle_adi'],
+                'updated_at' => $time,
                 'created_at' => $time,
-                'updated_at' => $time
             ];
         }
-        return $regions;
+        return $jsonData;
     }
 
-    public static function region()
+    public function town()
     {
-        $file = file_get_contents("https://raw.githubusercontent.com/mburakkalkan/turkiye-il-ilce-semt-mahalle-veritabani/master/turkiye_ilceler_12042017.csv");
-        $data = explode("\n",$file);
-        array_shift($data);
-        $regions = [];
+        $jsonData = [];
+        $data = JsonMachine::fromFile(public_path("regions/town.json"));
         $time = now('Europe/Istanbul');
-        foreach ($data as $item)
+        foreach ($data as $it)
         {
-            $parse = explode(";",$item);
-            $regions[] = [
-                'city_id' => $parse[2],
-                'name' => $parse[1],
+            $jsonData[] = [
+                'city_id' => $it['il_id'],
+                'name' => $it['ilce_adi'],
+                'updated_at' => $time,
                 'created_at' => $time,
-                'updated_at' => $time
             ];
+
         }
-        return $regions;
+        return $jsonData;
     }
 
-    public static function cities()
-    {
-        $file = file_get_contents("https://raw.githubusercontent.com/mburakkalkan/turkiye-il-ilce-semt-mahalle-veritabani/master/turkiye_iller_12042017.csv");
-        $data = explode("\n",$file);
-        array_shift($data);
 
-        $cities = [];
+    public function city()
+    {
+        $jsonData = [];
+        $data = JsonMachine::fromFile(public_path("regions/city.json"));
         $time = now('Europe/Istanbul');
-        foreach ($data as $item)
+        foreach ($data as $it)
         {
-            $parse = explode(";",$item);
-            $cities[] = [
-                'code' => $parse[0],
-                'name' => $parse[1],
+
+            $jsonData[] = [
+                'code' => $it['_id'],
+                'name' => $it['il_adi'],
+                'updated_at' => $time,
                 'created_at' => $time,
-                'updated_at' => $time
             ];
+
         }
-        return $cities;
+        return $jsonData;
     }
 
 }

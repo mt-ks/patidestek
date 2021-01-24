@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Region;
+use App\Models\Town;
 use Illuminate\Http\Request;
 
 class RegionSelectController extends Controller
@@ -13,14 +14,14 @@ class RegionSelectController extends Controller
         return City::all();
     }
 
-    public function regions(Request $request)
+    public function towns($cityId)
     {
-        return City::where('id',$request->input('id'))->with('regions')->get();
+        return City::where('id',$cityId)->with('towns')->get();
     }
 
-    public function region_sub(Request $request)
+    public function districts($regionId)
     {
-        return Region::where('id',$request->input('id'))->with('region_sub');
+        return Town::where('id',$regionId)->with('districts')->get();
     }
 
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegionSelectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ Route::get('/posts', function () {
     return view('posts');
 });
 
+
+Route::get('town/{cityId}',[RegionSelectController::class,'towns']);
+Route::get('district/{regionId}',[RegionSelectController::class,'districts']);
 
 Route::get('test',[\App\Http\Controllers\TestController::class,'test']);
 
