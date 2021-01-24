@@ -122,3 +122,7 @@ input:read-only + label::before {
 .radius-full{
     border-radius: 5000px;
 }
+
+.is-invalid{
+    border: 1px solid #ffa3a3!important;
+}

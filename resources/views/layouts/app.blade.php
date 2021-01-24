@@ -19,13 +19,13 @@
 
 <nav class="custom_menu nice_shadow">
     <div class="nav-wrapper container">
-        <a href="{{ route('main') }}" class="brand-logo black-text d-flex" ><img src="{{ asset('assets/images/logo2.png') }}" alt="" style="width: 48px;margin-top: 1px"></a>
+        <a href="{{ route('main') }}" class="brand-logo black-text d-flex"><img
+                src="{{ asset('assets/images/logo2.png') }}" alt="" style="width: 48px;margin-top: 1px"></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             @if(auth()->check())
                 <li><a href="{{ route('main') }}">Anasayfa</a></li>
-                <li>
-                    <form action="{{ route('logout') }}" method="post">@csrf <button type="submit" class="btn blue">ÇIKIŞ</button></form></li>
+                <li><a href="{{ route('main') }}">Profilim</a></li>
             @else
                 <li><a href="{{ route('login') }}">Giriş Yap</a></li>
                 <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
