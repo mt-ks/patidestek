@@ -23,10 +23,9 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             @if(auth()->check())
-                <li><a href="">Anasayfa</a></li>
-                <li><a href="">İlanlar</a></li>
-                <li><a href="">İstasyonlar</a></li>
-                <li><a href="">Profilim</a></li>
+                <li><a href="{{ route('main') }}">Anasayfa</a></li>
+                <li>
+                    <form action="{{ route('logout') }}" method="post">@csrf <button type="submit" class="btn blue">ÇIKIŞ</button></form></li>
             @else
                 <li><a href="{{ route('login') }}">Giriş Yap</a></li>
                 <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
