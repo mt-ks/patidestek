@@ -12,4 +12,9 @@ class Region extends Model
     protected $fillable = [
         'city_id', 'name'
     ];
+
+    public function region_sub()
+    {
+        return $this->hasOne(RegionSub::class,'region_id','id');
+    }
 }

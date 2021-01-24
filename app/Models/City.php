@@ -12,4 +12,9 @@ class City extends Model
     protected $fillable = [
         'code', 'name'
     ];
+
+    public function regions()
+    {
+        return $this->hasMany(Region::class,'city_id','id');
+    }
 }

@@ -15,5 +15,7 @@ Route::get('/posts', function () {
 });
 
 
+Route::get('test',[\App\Http\Controllers\TestController::class,'test']);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

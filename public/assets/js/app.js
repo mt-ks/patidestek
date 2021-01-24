@@ -20,6 +20,16 @@ $(function (){
 
     })
 
+    $("#cities_select").on('change',function (e){
+        e.preventDefault();
+        let id = $(this).val();
+        let uri = $(this).attr("data-page");
+        $.get(page,{id}, function (data){
+            let json = JSON.parse(data);
+            console.log(data);
+        })
+    })
+
 });
 
 function request(data,callback)

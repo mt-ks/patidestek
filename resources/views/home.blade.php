@@ -22,13 +22,22 @@
                         <label>Filtreler</label>
                         <input type="text" placeholder="Arama mentni...">
 
-                        <select class="browser-default">
+                        <select data-page="" id="cities_select" class="browser-default">
                             <option value="">Şehir seçiniz...</option>
+                            @foreach($city as $c)
+                                <option value="{{ $c->id }}">{{ $c->name }}</option>
+                            @endforeach
+                        </select>
+
+                        <select class="browser-default mt-1">
+                            <option value="">İlçe seçiniz...</option>
                         </select>
 
                         <select class="browser-default mt-1">
                             <option value="">Mahalle seçiniz...</option>
                         </select>
+
+
 
                         <select class="browser-default mt-1">
                             <option value="">Köpek</option>
