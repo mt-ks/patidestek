@@ -9,13 +9,13 @@ use Illuminate\Notifications\Notifiable;
 class Donation  extends Models
 {
     use HasFactory, Notifiable;
-
-    @var array
+    
+   
 
     protected $fillable = [
         'id',
         'user_id',
-        'receiver_id'
+        'receiver_id',
         'quantity',
         'description',
 
@@ -25,3 +25,4 @@ class Donation  extends Models
     protected $primaryKey = 'id';
     protected $hidden = ['quantity'];
 
+}
