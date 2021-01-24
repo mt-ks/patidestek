@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->ipAddress('ip')->nullable();
             $table->integer('gender')->default(0);
             $table->string('phone')->nullable();
+            $table->integer('honor_points')->default(0);
+            $table->tinyInteger('role')->default(1);
             $table->boolean('is_verified')->default(false);
             $table->rememberToken();
             $table->timestamps();

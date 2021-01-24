@@ -24,6 +24,8 @@ class User extends Authenticatable
         'ip',
         'gender',
         'phone',
+        'honor_points',
+        'role',
         'is_verified'
     ];
 

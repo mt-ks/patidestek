@@ -10,9 +10,8 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="col s12 m6">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Ad</label>
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -21,12 +20,23 @@
                                     })</script>
                                 @enderror
                             </div>
+
+                            <div class="col s12 m6">
+                                <label for="surname" class="col-md-4 col-form-label text-md-right">Soyad</label>
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname">
+
+                                @error('surname')
+                                <script>$(function () {
+                                        toast('{{ $message }}')
+                                    })</script>
+                                @enderror
+                            </div>
+
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="col s12 m12">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Adresiniz') }}</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -38,9 +48,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col s12 m12">
+                                <label for="password">Şifre</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -52,24 +62,33 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                            <div class="col-md-6">
+                            <div class="col s12 m12">
+                                <label for="password-confirm">Tekrar şifre</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" >
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="phone">Telefon numaranız</label>
-                            <input id="phone" name="phone" type="text" placeholder="Telefon numaranız" required>
+                            @error('phone')
+                            <script>$(function () {
+                                    toast('{{ $message }}')
+                                })</script>
+                            @enderror
+                            <div class="col s12 m12">
+                                <label for="phone">Telefon numaranız</label>
+                                <input id="phone" name="phone" type="text" required>
+                            </div>
                         </div>
 
 
                         <div class="form-group row">
-                            <label for="phone">Cinsiyet</label>
-                            <select name="gender" class="browser-default" id="">
-                                <option value="">Erkek</option>
-                                <option value="">Kadın</option>
-                            </select>
+                            <div class="col s12 m12">
+                                <label for="phone">Cinsiyet</label>
+                                <select name="gender" class="browser-default" id="">
+                                    <option value="2">Kadın</option>
+                                    <option value="1">Erkek</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div></div>
