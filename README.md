@@ -60,3 +60,6 @@ Run the app
 ```shell
 php artisan serve
 ```
+
+Database; 26.01.2021
+<img src="https://i.hizliresim.com/fh0Q46.jpg">
