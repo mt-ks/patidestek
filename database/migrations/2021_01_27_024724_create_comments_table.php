@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStationsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateStationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stations', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->string('name');
-            $table->longText('description')->nullable();
-            $table->string('location');
-            $table->string('receiver_location');
-            $table->boolean('confirmed_by_admin');
-            $table->integer('map_type');
+            $table->longText('image')->nullable();
+            $table->string('comment');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
@@ -34,6 +30,6 @@ class CreateStationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stations');
+        Schema::dropIfExists('comments');
     }
 }

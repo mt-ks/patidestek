@@ -12,7 +12,13 @@ class Station extends Model
         'location',
         'description',
         'user_id',
-        'image'
+        'image',
+        'receiver_location',
+        'map_type',
+        'confirmed_by_admin',
+        'deleted_at',
+        'created_at',
+        'updated_at' 
     ];
 
     use HasFactory;
