@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Station;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'city' => City::orderBy('name')->get()
+            'city' => City::orderBy('name')->get(),
+            'stations' => Station::with('user')->orderBy('id','DESC')->limit(5)->get()
         ];
         return view('home',$data);
     }

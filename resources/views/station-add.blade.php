@@ -18,11 +18,13 @@
                 <div id="mapArea"></div>
                 <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
+                <input type="text" id="stationName" placeholder="Istasyon adı" autocomplete="off">
+
                 <textarea name="editor1"></textarea>
                 <script>
-                    CKEDITOR.replace( 'editor1' );
+                    CKEDITOR.replace('editor1');
                 </script>
-                <button type="submit" class="btn blue mt-1">PAYLAŞ</button>
+                <button type="submit" class="btn blue mt-1" id="shareStation">PAYLAŞ</button>
             </div>
         </div>
     </div>
@@ -30,20 +32,20 @@
     <script>
         let latitude, longitude;
         getLocation();
+
         function getLocation() {
             let auth = false;
-            navigator.geolocation.watchPosition(function(position) {
-                if (auth === false)
-                {
-                    auth = true;
-                    showPosition(position);
-                }
-                    $("div#addArea").css({display:'block'});
+            navigator.geolocation.watchPosition(function (position) {
+                    if (auth === false) {
+                        auth = true;
+                        showPosition(position);
+                    }
+                    $("div#addArea").css({display: 'block'});
                 },
-                function(error) {
+                function (error) {
                     if (error.code === error.PERMISSION_DENIED)
-                        $("div#blockArea").css({display:'block'});
-                        $("div#addArea").css({display:'none'});
+                        $("div#blockArea").css({display: 'block'});
+                    $("div#addArea").css({display: 'none'});
                 });
 
         }
@@ -61,13 +63,34 @@
                     marginwidth="0"></iframe>`)
         }
 
-        $("body").delegate("button#currentLocation",'click',function (){
-            $("iframe#gmap_canvas").attr("src","https://maps.google.com/maps?q="+latitude +', ' + longitude+"&t=&z=17&ie=UTF8&iwloc=&output=embed");
+        $("body").delegate("button#currentLocation", 'click', function () {
+            $("iframe#gmap_canvas").attr("src", "https://maps.google.com/maps?q=" + latitude + ', ' + longitude + "&t=&z=17&ie=UTF8&iwloc=&output=embed");
         })
 
-        $("body").delegate('input#searchQuery','keydown',function (data){
+        $("body").delegate('input#searchQuery', 'keydown', function (data) {
             let val = $(this).val();
-            $("iframe#gmap_canvas").attr("src","https://maps.google.com/maps?q="+val+"&t=&z=17&ie=UTF8&iwloc=&output=embed");
+            $("iframe#gmap_canvas").attr("src", "https://maps.google.com/maps?q=" + val + "&t=&z=17&ie=UTF8&iwloc=&output=embed");
+        })
+
+        $("button#shareStation").on('click', function (e) {
+
+            e.preventDefault();
+            let name = $("input#stationName").val();
+            let location = $("input#searchQuery").val();
+            if (name === '')
+            {
+                toast('Istasyon adı gerekli!')
+                return;
+            }
+
+            if (location === '')
+            {
+                location = latitude + ', ' + longitude;
+            }
+            let description = CKEDITOR.instances['editor1'].getData();
+
+            request(null,{address : '{{ route('station.add') }}', data : {name,location,description} });
+
         })
     </script>
 
