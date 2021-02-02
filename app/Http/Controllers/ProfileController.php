@@ -29,13 +29,15 @@ class ProfileController extends Controller
             'name' => 'required',
             'surname' => 'required',
             'phone' => 'required',
-            'gender' => 'required|numeric'
+            'gender' => 'required|numeric',
+            'email' => 'required'
         ]);
         User::find(auth()->id())->update([
-           'name' => $request->input('name'),
-           'surname' => $request->input('surname'),
-           'phone' => $request->input('phone'),
-           'gender' => $request->input('gender')
+            'name' => $request->input('name'),
+            'surname' => $request->input('surname'),
+            'phone' => $request->input('phone'),
+            'gender' => $request->input('gender'),
+            'email' => $request->input('email')
         ]);
         return response()->json(['status' => 'ok', 'message' => 'Bilgileriniz güncellendi.']);
     }
@@ -47,7 +49,7 @@ class ProfileController extends Controller
         ]);
 
         $image = $request->file('avatar');
-        $uploadedUrl =  env('APP_URL').'storage/'.$image->store('avatar');
+        $uploadedUrl = env('APP_URL') . 'storage/' . $image->store('avatar');
         User::find(auth()->id())->update([
             'avatar' => $uploadedUrl
         ]);

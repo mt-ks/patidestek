@@ -26,7 +26,7 @@
         <ul class="right hide-on-med-and-down">
             @if(auth()->check())
                 <li><a href="{{ route('main') }}">Anasayfa</a></li>
-                <li><a href="{{ route('user.profile') }}">Profilim</a></li>
+                <li><a href="{{ route('user.profile') }}">İstasyonlarım</a></li>
                 <li><a href="{{ route('user.profile.edit') }}">Profilimi Düzenle</a></li>
                 <li><a href="#logoutModal" class="modal-trigger">Çıkış Yap</a></li>
             @else
