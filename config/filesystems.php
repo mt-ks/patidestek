@@ -35,11 +35,11 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'public' => [
+        'httpdocs' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/httpdocs'),
             'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
+            'visibility' => 'httpdocs',
         ],
 
         's3' => [
