@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Validator::replacer('phone', function($message, $attribute, $rule, $parameters) {
             return str_replace(':attribute',$attribute, ':attribute geçersiz telefon numarası');
         });
+
+        Schema::defaultStringLength(191);
     }
 }
