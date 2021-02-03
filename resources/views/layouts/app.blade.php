@@ -39,10 +39,10 @@
 
 <ul class="sidenav" id="mobile-demo">
     @if(auth()->check())
-        <li><a href="">Anasayfa</a></li>
-        <li><a href="">İlanlar</a></li>
-        <li><a href="">İstasyonlar</a></li>
-        <li><a href="">Profilim</a></li>
+        <li><a href="{{ route('main') }}">Anasayfa</a></li>
+        <li><a href="{{ route('user.profile') }}">İstasyonlarım</a></li>
+        <li><a href="{{ route('user.profile.edit') }}">Profilimi Düzenle</a></li>
+        <li><a href="#logoutModal" class="modal-trigger">Çıkış Yap</a></li>
     @else
         <li><a href="{{ route('login') }}">Giriş Yap</a></li>
         <li><a href="{{ route('register') }}">Kayıt Ol</a></li>
