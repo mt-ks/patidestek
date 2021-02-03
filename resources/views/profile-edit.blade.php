@@ -36,7 +36,7 @@
                     <form action="{{ route('user.profile._edit') }}" method="post" class="submit">
                         @csrf
                         <div class="mt-1" style="margin-top: 20px">
-                            <input type="email" placeholder="E-Posta" value="{{ auth()->user()->email }}" readonly>
+                            <input type="email" placeholder="E-Posta" name="email" value="{{ auth()->user()->email }}">
                         </div>
                         <div class="mt-1">
                             <input type="text" placeholder="Adınız" name="name" value="{{ auth()->user()->name }}">

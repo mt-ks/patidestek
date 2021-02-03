@@ -9,12 +9,12 @@
                 <div class="card nice_shadow">
                     <div class="card-content d-flex">
                         <div>
-                            <img src="{{ auth()->user()->avatar }}" alt="" width="80px" height="100px" class="main_avatar">
+                            <img src="{{ auth()->user()->avatar }}" alt="" width="80px" class="main_avatar">
                         </div>
                         <div style="margin-left: 18px;margin-top: auto;margin-bottom: auto">
                             <h5>{{ auth()->user()->name }}</h5>
                             <label for="">{{ auth()->user()->email }}</label> <br>
-                            <label for="">Onur Puanı : 100</label>
+                            <label for="">Onur Puanı : 0</label>
                         </div>
                     </div>
                     <a href="{{ route('user.profile.edit') }}" class="btn pink" style="width: 100%">Profili Düzenle</a>
