@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'ip' => request()->ip(),
             'gender' => $data['gender'],
             'phone' => $data['phone'],
-            'avatar' => ''
+            'avatar' => asset('assets/images/blank_avatar.jpg')
         ]);
     }
 }
