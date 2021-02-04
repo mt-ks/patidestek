@@ -26,7 +26,7 @@
 
                         <select data-page="{{ route('region.town',['cityId' => -1]) }}" id="cities_select"
                                 class="browser-default">
-                            <option value="">Şehir seçiniz...</option>
+                            <option value="">İl seçiniz...</option>
                             @foreach($city as $c)
                                 <option value="{{ $c->id }}">{{ $c->name }}</option>
                             @endforeach
