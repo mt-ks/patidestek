@@ -14,7 +14,7 @@
                         <div style="margin-left: 18px;margin-top: auto;margin-bottom: auto">
                             <h5>{{ auth()->user()->name }}</h5>
                             <label for="">{{ auth()->user()->email }}</label> <br>
-                            <label for="">Onur Puanı : 0</label>
+                            <label for="">Onur Puanı: {{ auth()->user(->honor_points)}}</label>
                         </div>
                     </div>
                     <a href="{{ route('user.profile.edit') }}" class="btn pink" style="width: 100%">Profili Düzenle</a>
