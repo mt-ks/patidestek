@@ -19,7 +19,7 @@ class CommentsController extends Controller
             'comment' => $request->input('comment'),
             'station_id' => $request->input('station_id')
         ]);
-        return response()->json(['status' => 'ok', 'message' => 'Yorum eklendi']);
+        return response()->json(['status' => 'ok', 'message' => 'Yorum eklendi', 'redirect' => route('station.get',['id' => $request->input('station_id')])]);
     }
 
     public function edit()

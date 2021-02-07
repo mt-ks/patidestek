@@ -18,7 +18,23 @@
                 <div id="mapArea"></div>
                 <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
+                <select data-page="{{ route('region.town',['cityId' => -1]) }}" id="cities_select"
+                        class="browser-default">
+                    <option value="">İl seçiniz...</option>
+                    @foreach($city as $c)
+                        <option value="{{ $c->id }}">{{ $c->name }}</option>
+                    @endforeach
+                </select>
+
+                <select id="town_select" data-page="{{ route('region.district',['townId' => -1]) }}"
+                        class="browser-default mt-1" style="margin-bottom: 10px">
+                    <option value="">İlçe seçiniz...</option>
+                </select>
+
+
                 <input type="text" id="stationName" placeholder="Istasyon adı" autocomplete="off">
+
+                <label>Lütfen açıklamada tam adres belirtiniz.</label>
 
                 <textarea name="editor1"></textarea>
                 <script>
@@ -77,6 +93,8 @@
             e.preventDefault();
             let name = $("input#stationName").val();
             let location = $("input#searchQuery").val();
+            let city_id = $("select#cities_select").val();
+            let town_id = $("select#town_select").val();
             if (name === '')
             {
                 toast('Istasyon adı gerekli!')
@@ -87,9 +105,31 @@
             {
                 location = latitude + ', ' + longitude;
             }
+
+            if (!parseInt(town_id) > 0)
+            {
+                toast('Lütfen il seçiniz.')
+                return;
+            }
+
+
+            if (!parseInt(city_id) > 0)
+            {
+                toast('Lütfen ilçe seçiniz.')
+                return;
+            }
+
+
+
             let description = CKEDITOR.instances['editor1'].getData();
 
-            request(null,{address : '{{ route('station.add') }}', data : {name,location,description} });
+            if (description == '')
+            {
+                toast('Lütfen açıklama metni giriniz.');
+                return;
+            }
+
+            request(null,{address : '{{ route('station.add') }}', data : {name,location,description,city_id,town_id} });
 
         })
     </script>

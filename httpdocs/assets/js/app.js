@@ -1,6 +1,8 @@
 $(function (){
     $('.modal').modal();
     $('.sidenav').sidenav();
+    $('.parallax').parallax();
+    $('.collapsible').collapsible();
 
     $.ajaxSetup({
         headers: {
@@ -13,6 +15,28 @@ $(function (){
         request($(this))
 
     })
+
+    let cities_Val = $("select#cities_select").val();
+    if (cities_Val > 0)
+    {
+        let drop = $("select#cities_select");
+        let id = drop.val();
+        let page = drop.attr("data-page");
+        $.ajax({
+            url: page.replace("-1","") + id,
+            method : 'GET',
+            dataType: 'JSON',
+            success : function (response){
+                $("#town_select").empty();
+                $("#town_select").append(new Option("İlçe seçiniz...", "-1"));
+                for (let i = 0; i < response.towns.length; i++)
+                {
+                    let item = response.towns[i];
+                    $("#town_select").append(new Option(item.name, item.id));
+                }
+            }
+        })
+    }
 
     $("#cities_select").on('change',function (e){
         e.preventDefault();

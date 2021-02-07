@@ -22,6 +22,8 @@ class CreateStationsTable extends Migration
             $table->string('receiver_location');
             $table->boolean('confirmed_by_admin');
             $table->integer('map_type');
+            $table->integer('city_id');
+            $table->integer('town_id');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });

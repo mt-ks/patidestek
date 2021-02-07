@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="mapouter">
+    <div class="mapouter" style="background: #dbdbdb">
         <div class="gmap_canvas">
             <iframe width="600" height="500" id="gmap_canvas"
                     src="https://maps.google.com/maps?q={{ $station->location }}&t=&z=17&ie=UTF8&iwloc=&output=embed"
@@ -47,35 +47,38 @@
         </div>
         @endforeach
     </div>
-    <div class="container">
-        <div class="card nice_shadow">
-            <div class="card-content">
-                <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+    @auth
+        <div class="container">
+            <div class="card nice_shadow">
+                <div class="card-content">
+                    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
-                <textarea id="comment" style="height: 200px" placeholder="Yorum yazınız..."></textarea>
-                <input type="hidden" id="station_id" value="{{ $station->id }}">
-                <button type="submit" class="btn blue" id="addComment">Paylaş</button>
+                    <textarea id="comment" style="height: 200px" placeholder="Yorum yazınız..."></textarea>
+                    <input type="hidden" id="station_id" value="{{ $station->id }}">
+                    <button type="submit" class="btn blue" id="addComment">Paylaş</button>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        $(function (){
-            $("button#addComment").on('click',function (e){
-                let comment = $("textarea#comment").val();
-                let station_id = parseInt($("input#station_id").val());
-                if (station_id === 0)
-                {
-                    toast('Geçersiz format')
-                    return;
-                }
-                if (comment === '' && comment.length < 3)
-                {
-                    toast('Lütfen yorum yazınız.')
-                    return;
-                }
+        <script>
+            $(function (){
+                $("button#addComment").on('click',function (e){
+                    let comment = $("textarea#comment").val();
+                    let station_id = parseInt($("input#station_id").val());
+                    if (station_id === 0)
+                    {
+                        toast('Geçersiz format')
+                        return;
+                    }
+                    if (comment === '' && comment.length < 3)
+                    {
+                        toast('Lütfen yorum yazınız.')
+                        return;
+                    }
 
-                request(null, {address: '{{ route('comment.add') }}', data:{comment,station_id}});
-            })
-        });
-    </script>
+                    request(null, {address: '{{ route('comment.add') }}', data:{comment,station_id}});
+                })
+            });
+        </script>
+
+    @endauth
 @endsection

@@ -7,38 +7,41 @@
 
             <div class="col s12 m3">
                 <div class="card nice_shadow">
-                    <div class="card-content d-flex">
-                        <div>
-                            <img src="{{ auth()->user()->avatar }}" alt="" width="80px" class="main_avatar">
+                    <div class="card-content">
+                        <div class="d-flex">
+                            <img src="{{ auth()->user()->avatar }}" alt="" width="80px" class="main_avatar"  style="margin-left: auto;margin-right: auto;">
                         </div>
-                        <div style="margin-left: 18px;margin-top: auto;margin-bottom: auto">
-                            <h5>{{ auth()->user()->name }}</h5>
-                            <label for="">{{ auth()->user()->email }}</label> <br>
-                            <label for="">Onur Puanı: {{ auth()->user()->honor_points }}</label>
+                        <div style="margin-left: auto;margin-right: auto;margin-bottom: auto">
+                            <h5 class="center">{{ auth()->user()->name }}</h5>
+                            <label>{{ auth()->user()->email }}</label> <br>
+                            <label>Onur Puanı: {{ auth()->user()->honor_points }}</label>
                         </div>
                     </div>
                     <a href="{{ route('user.profile.edit') }}" class="btn pink" style="width: 100%">Profili Düzenle</a>
+                    <a href="{{ route('station.add') }}" type="submit" class="btn  pink" style="width: 100%; margin-top: 5px">Istasyon Ekle</a>
                 </div>
 
-                <div class="card nice_shadow">
+                <div class="card" id="searchLocation">
                     <div class="card-content">
                         <label>Filtreler</label>
 
-                        <select data-page="{{ route('region.town',['cityId' => -1]) }}" id="cities_select"
-                                class="browser-default">
-                            <option value="">İl seçiniz...</option>
-                            @foreach($city as $c)
-                                <option value="{{ $c->id }}">{{ $c->name }}</option>
-                            @endforeach
-                        </select>
+                        <form action="">
+                            <select name="city_id" data-page="{{ route('region.town',['cityId' => -1]) }}" id="cities_select"
+                                    class="browser-default">
+                                <option value="">İl seçiniz...</option>
+                                @foreach($city as $c)
+                                    <option  @if((int)request()->input('city_id') === $c->id) selected @endif value="{{ $c->id }}">{{ $c->name }}</option>
+                                @endforeach
+                            </select>
 
-                        <select id="town_select" data-page="{{ route('region.district',['townId' => -1]) }}"
-                                class="browser-default mt-1">
-                            <option value="">İlçe seçiniz...</option>
-                        </select>
+                            <select name="town_id" id="town_select" data-page="{{ route('region.district',['townId' => -1]) }}"
+                                    class="browser-default mt-1">
+                                <option value="">İlçe seçiniz...</option>
+                            </select>
 
 
-                        <button class="btn blue mt-1" style="width: 100%">ARA</button>
+                            <button class="btn blue mt-1" style="width: 100%" type="submit">ARA</button>
+                        </form>
 
                     </div>
                 </div>
@@ -46,14 +49,15 @@
 
             <div class="col s12 m7">
 
-                <div class="col s12 m12">
-                    <div class="card nice_shadow">
-                        <div class="card-content">
-                            <a href="{{ route('station.add') }}" type="submit" class="btn  pink">Istasyon
-                                Ekle</a>
+                @if(count($stations) === 0)
+                        <div class="card nice_shadow">
+                            <div class="card-content">
+                                <h4 class="thin center">Hiç İstasyon bulunamadı</h4>
+                                <a href="{{ route('station.add') }}" style="display: block" class="btn blue">Istasyon Ekle</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                @endif
+
 
 
                 @foreach($stations as $station)

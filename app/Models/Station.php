@@ -22,6 +22,8 @@ class Station extends Model
         'receiver_location',
         'map_type',
         'confirmed_by_admin',
+        'city_id',
+        'town_id',
         'deleted_at',
         'created_at',
         'updated_at'
