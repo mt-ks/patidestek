@@ -39,7 +39,8 @@ class StationController extends Controller
             'description' => $request->input('description'),
             'location' => $request->input('location'),
             'receiver_location' => $request->input('location'),
-            'confirmed_by_admin' => true
+            'confirmed_by_admin' => true,
+            'map_type' => 1
         ]);
 
         return response()->json(['status' => 'ok', 'message' => 'İstasyon eklendi.']);
