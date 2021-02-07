@@ -37,7 +37,8 @@ class StationController extends Controller
             'name' => $request->input('name'),
             'user_id' => auth()->user()->id,
             'description' => $request->input('description'),
-            'location' => $request->input('location')
+            'location' => $request->input('location'),
+            'receiver_location' => $request->input('location')
         ]);
 
         return response()->json(['status' => 'ok', 'message' => 'İstasyon eklendi.']);
