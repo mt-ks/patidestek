@@ -73,7 +73,7 @@
 
         <div class="row">
             @foreach($developers as $developer)
-                <div class="col s6 m4">
+                <div class="col s12 m4">
                     <div class="card nice_shadow">
                         <div class="card-content">
                             <center>

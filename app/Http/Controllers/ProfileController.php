@@ -11,7 +11,7 @@ class ProfileController extends Controller
 {
     public function index(Request $request)
     {
-        $stations = Station::with('user');
+        $stations = Station::with('user')->where('user_id',auth()->id());
 
         if ($request->input('city_id'))
         {
